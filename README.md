@@ -1,68 +1,91 @@
-ItzFizz Scroll-Driven Hero
+<div align="center">
 
-A cinematic, scroll-driven automotive hero section built for the ItzFizz Web Development Internship assignment. As you scroll, a car drives across the screen, the headline reveals letter by letter, and the stats count up.
+# 🚗 ItzFizz — Scroll-Driven Hero
 
+### A cinematic web experience where scrolling *is* the animation.
 
-<!-- Tip: add a screenshot -> put image in /screenshots and use: ![Preview](./screenshots/preview.png) -->
-Features
-Scroll-linked animation: the car, wheels, sun, skyline and road all move on one scrubbed GSAP timeline
-Parallax depth: each layer moves at a different speed
-Headline "WELCOME ITZFIZZ" reveals character by character
-Stats section fades in and counts up (58%, 23%, 27%, 40%)
-Fully responsive (mobile, tablet, desktop)
-Respects prefers-reduced-motion (static version shown)
-All artwork is inline SVG, so there are no external images and it stays sharp at any size
-Tech Stack
-React 19 + TypeScript
-TanStack Start / TanStack Router
-Tailwind CSS 4
-GSAP + ScrollTrigger
-Vite
-Run Locally
-sh
-git clone <your-repo-url>
-cd <repo-name>
-bun install        # or: npm install
-bun run dev        # or: npm run dev
+### 🌐 [Live Demo → https://itzfizz-scroll-hero-hpjrekg04-personal127.vercel.app)
 
-Open the local URL shown in the terminal (usually http://localhost:5173).
+</div>
 
-Production build:
+---
 
-sh
-bun run build
-How the Animation Works
+## 📖 About
 
-ScrollTrigger pins the first screen and maps scroll progress to a single GSAP timeline (scrub: 1.25), so the motion follows the scrollbar instead of autoplaying. The car crosses the viewport while the wheels rotate; the sun, skyline and road lines move at different rates for depth. Headline letters then reveal in sequence and the metrics fade in and count up.
+A scroll-driven animation built for the **ItzFizz Web Development Internship** assignment.
 
-Performance
-Only transform and opacity are animated (GPU-friendly, no layout thrashing)
-GSAP is loaded client-side only
-invalidateOnRefresh recalculates geometry on resize
-Cleanup on unmount via gsap.context()
-Project Structure
+As the user scrolls, the first screen stays pinned while a single timeline plays out: a car drives across the viewport, its wheels spin, the skyline and sun drift at different speeds, the headline **WELCOME ITZFIZZ** reveals letter by letter, and four impact metrics count up. Scroll back and everything rewinds.
+
+## 🎯 Assignment Requirements → Implementation
+
+| Requirement | How it's done |
+|---|---|
+| Scroll-based animation | GSAP `ScrollTrigger` pins the hero and scrubs one timeline to scroll progress |
+| Car moves with scroll | Car translates across the viewport, tied directly to scroll position |
+| Headline reveal | Each letter is its own element, revealed with a staggered timeline |
+| Stats animation | Values count up from 0 with snapped integers (58%, 23%, 27%, 40%) |
+| Smooth performance | Only `transform` and `opacity` are animated |
+| Responsive | Fluid `clamp()` type, geometry recalculated on refresh and resize |
+
+## ⚙️ How It Works
+
+1. **Pin** — `ScrollTrigger` pins the hero section while the user scrolls.
+2. **Scrub** — one master GSAP timeline is linked to scroll progress (`scrub: 1.25` for a smooth, slightly eased follow).
+3. **Layers** — car, wheels, sun, skyline and road lines move at different rates to create parallax depth.
+4. **Sequence** — headline letters stagger in, the scroll cue fades out, then the stats fade in and count up.
+5. **Clean-up** — everything runs inside `gsap.context()` and is reverted on unmount.
+
+## ⚡ Performance & Accessibility
+
+- 🚀 GPU-friendly: animates `transform` and `opacity` only, so no layout thrashing
+- 🖼️ All artwork is inline SVG: no image requests, crisp at any size
+- 🔌 GSAP is loaded client-side only (dynamic import)
+- ♿ `prefers-reduced-motion` users get a complete static composition
+- 🏷️ Semantic markup with ARIA labels on the headline and metrics
+
+## 🧰 Tech Stack
+
+| | |
+|---|---|
+| **Framework** | React 19, TanStack Start |
+| **Language** | TypeScript |
+| **Styling** | Tailwind CSS 4 |
+| **Animation** | GSAP, ScrollTrigger |
+| **Build** | Vite |
+| **Hosting** | Vercel |
+
+## 🚀 Getting Started
+
+```bash
+# clone
+git clone https://github.com/bhoomi2025/itzfizz-scroll-hero.git
+cd itzfizz-scroll-hero
+
+# install
+npm install
+
+# run
+npm run dev
+```
+
+Open the local URL shown in the terminal (usually `http://localhost:5173`).
+
+Production build: `npm run build`
+
+## 📁 Project Structure
+
+```text
 src/
-  routes/index.tsx   # Hero scene + GSAP timeline
-  styles.css         # Design tokens, layout, responsive styles
-  components/ui/     # UI primitives
-public/              # Favicon, robots.txt
-Author
+├── routes/
+│   └── index.tsx      # hero scene + GSAP timeline
+├── components/ui/     # UI primitives
+├── styles.css         # design tokens, layout, responsive styles
+└── router.tsx
+public/                # favicon, robots.txt
+```
 
-<Your BHOOMI> — <your BHOOMISRIVASTVA2023@GMAIL.COM /  GitHub link>
+---
 
-Content
-itzfizz-scroll-hero.zip
 
-ZIP
-
-PS C:\Users\ACS\Downloads\itzfizz-scroll-hero> git init Initialized empty Git repository in C:/Users/ACS/Downloads/itzfizz-scroll-hero/.git/ PS C:\Users\ACS\Downloads\itzfizz-scroll-hero> git add . >> warning: in the working copy of 'itzfizz-src/.gitignore', LF will be replaced by CRLF the next
-
-PASTED
-
-PS C:\Users\ACS\Downloads\itzfizz-scroll-hero> git init Initialized empty Git repository in C:/Users/ACS/Downloads/itzfizz-scroll-hero/.git/ PS C:\Users\ACS\Downloads\itzfizz-scroll-hero> git add . >> warning: in the working copy of 'itzfizz-src/.gitignore', LF will be replaced by CRLF the next
-
-PASTED
-
-PS C:\Users\ACS\Downloads\itzfizz-scroll-hero> git init Initialized empty Git repository in C:/Users/ACS/Downloads/itzfizz-scroll-hero/.git/ PS C:\Users\ACS\Downloads\itzfizz-scroll-hero> git add . >> warning: in the working copy of 'itzfizz-src/.gitignore', LF will be replaced by CRLF the next
-
-PASTED
+- 🐙 GitHub: [@bhoomi2025](https://github.com/bhoomi2025)
+- 📧 Email: [BHOOMISRIVASTAVA2023@GMAIL.COM)
